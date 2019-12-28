@@ -26,6 +26,7 @@ set nocompatible
 filetype plugin on
 
 autocmd Filetype haskell setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype dart setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype rust setlocal ts=8 sw=8 sts=0 expandtab
 
 set signcolumn=yes
@@ -65,6 +66,10 @@ let g:lightline = { 'colorscheme': 'jellybeans' }
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 2
 map <C-c> <leader>c <CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'sophacles/vim-processing'
+map <Leader>m :make<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'natebosch/vim-lsc'
@@ -224,6 +229,14 @@ Plug 'airblade/vim-gitgutter'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'rust-lang/rust.vim'
 let g:rustfmt_autosave = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'dart-lang/dart-vim-plugin'
+let g:dart_format_on_save = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Plug'tikhomirov/vim-glsl'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""
