@@ -20,14 +20,38 @@ set clipboard=unnamedplus
 set list
 set listchars=tab:\⋅\ ,trail:⋅
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 set nuw=2
+
+set cc=81
 
 set nocompatible
 filetype plugin on
 
 autocmd Filetype haskell setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype dart setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 sts=0 expandtab
+
 autocmd Filetype rust setlocal ts=8 sw=8 sts=0 expandtab
+autocmd Filetype rust setlocal cc=100
+
+autocmd Filetype json setlocal ts=4 sw=4 sts=0 expandtab
+
+autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype c setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype cpp setlocal ts=2 sw=2 sts=0 expandtab
+
+autocmd Filetype go setlocal ts=4 sw=4 sts=0 noexpandtab
+
+au BufRead,BufNewFile *.h set filetype=c
+au BufRead,BufNewFile *.sim set filetype=simlang
+
+autocmd BufWritePre *.c Format
+autocmd BufWritePre *.h Format
+autocmd BufWritePre *.rs Format
 
 set signcolumn=yes
 
@@ -205,6 +229,10 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+
+autocmd BufWritePre *.go Format
+autocmd BufWritePre *.c Format
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'leafo/moonscript-vim'
 
@@ -215,7 +243,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'elixir-editors/vim-elixir'
+" Plug 'elixir-editors/vim-elixir'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -227,16 +255,53 @@ Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
+" Plug 'rust-lang/rust.vim'
+" let g:rustfmt_autosave = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dart-lang/dart-vim-plugin'
 let g:dart_format_on_save = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'iamcco/coc-flutter'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug'tikhomirov/vim-glsl'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'editorconfig/editorconfig-vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+" autocmd BufWritePre *.js Prettier
+autocmd BufWritePre *.ts Prettier
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'dense-analysis/ale'
+" let g:ale_linters = {
+" \   'javascript': ['xo'],
+" \}
+" let g:ale_fixers = {'javascript': ['xo']}
+" let g:ale_lint_on_save = 1
+" let g:ale_fix_on_save = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'xojs/vim-xo'
+" Plug 'Chiel92/vim-autoformat'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'cespare/vim-toml'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""

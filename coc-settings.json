@@ -5,29 +5,15 @@
         "rootPatterns": ["go.mod"],
         "filetypes": ["go"]
       },
-      "ccls": {
-        "command": "ccls",
-        "filetypes": ["c", "cpp", "objc", "objcpp"],
-        "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-        "initializationOptions": {
-           "cache": {
-             "directory": "/tmp/ccls"
-           }
-         }
+      "clangd": {
+        "command": "clangd",
+        "args": ["--background-index"],
+        "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+        "filetypes": ["c", "cpp", "objc", "objcpp"]
       },
       "lua": {
         "command": "lua-lsp",
         "filetypes": ["lua"]
-      },
-      "dart": {
-        "command": "dart",
-        "args": [
-          "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
-          "--lsp"
-        ],
-        "filetypes": ["dart"],
-        "disableDynamicRegister": true,
-        "trace.server": "verbose"
       }
   }
 }
